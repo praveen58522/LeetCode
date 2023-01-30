@@ -13,15 +13,15 @@ class Solution{
         
         int l=0,h=n-1,mid;
         
-        bool f = false;
+
         
-        long long ans=0;
+        long long ans=-1;
         while(l<=h)
         {
             mid=l+(h-l)/2;
             if(v[mid] <= x)
             {
-                f = true;
+
                 ans = mid;
                 l=mid+1;
             }
@@ -30,13 +30,8 @@ class Solution{
             }
         }
         
-        if(f){
             return ans;
-        }
-        else{
-            return -1;
-        }
-        
+  
     }
 };
 
