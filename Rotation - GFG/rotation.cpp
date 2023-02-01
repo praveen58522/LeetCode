@@ -16,19 +16,30 @@ public:
 	    
 	    while(l<=h)
 	    {
+	        
+	        
 	        mid=l+(h-l)/2;
-	        if(arr[0]<=arr[mid])
-	        {
+	        int next,prev;
+	        next=(mid+1)%n;
+	        prev=(mid+n-1)%n;
+	        
+	        if(arr[mid]<=arr[next]&&arr[mid]<=arr[prev]) return mid;
+	        if(arr[l]<=arr[mid]){
 	            l=mid+1;
-	        }
-	        else
-	        {
-	            pivot=mid;
+	            next=(l+1)%n;
+	            prev=(l+n-1)%n;
+	            if(arr[l]<=arr[next]&&arr[l]<=arr[prev]) return l;
+	        } 
+	        else if (arr[mid]<=arr[h]){
 	            h=mid-1;
-	        }
-	    }
-	    return pivot;
-	    
+	            next=(h+1)%n;
+	            prev=(h+n-1)%n;
+	            if(arr[h]<=arr[next]&&arr[h]<=arr[prev]) return h;
+	        } 
+	        
+	}
+	
+	return 0;
 	}
 };
 
