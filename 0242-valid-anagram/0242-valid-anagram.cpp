@@ -2,18 +2,16 @@ class Solution {
 public:
     bool isAnagram(string s, string t) {
         
-        
-        const int CHAR = 256;
-        int c[CHAR] = {0};
+        int c[26] = {0};
         
         if(s.size()!=t.size()) return false;
         
         for(int i=0;i<s.size();i++)
         {
-            c[s[i]]++;
-            c[t[i]]--;
+            c[s[i]-97]++;
+            c[t[i]-97]--;
         }
-        for(int i = 0 ; i < CHAR ; i++)
+        for(int i = 0 ; i <26 ; i++)
         {
             if(c[i]!=0) return false;
         }
